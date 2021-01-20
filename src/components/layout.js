@@ -1,26 +1,37 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import base from './base.css'
-import Container from './container'
-import Navigation from './navigation'
+import React from 'react';
+import './base.css';
+import Container from './container';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import NavBar from './NavBar';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: '#484848',
+      main: '#000000',
+      dark: '#212121',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#ff5131',
+      main: '#ff0400',
+      dark: '#9b0000',
+      contrastText: '#fff',
+    },
+  },
+});
 
 class Template extends React.Component {
   render() {
-    const { location, children } = this.props
-    let header
-
-    let rootPath = `/`
-    if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
-      rootPath = __PATH_PREFIX__ + `/`
-    }
+    const { children } = this.props;
 
     return (
-      <Container>
-        <Navigation />
-        {children}
-      </Container>
-    )
+      <ThemeProvider theme={theme}>
+        <NavBar />
+        <Container>{children}</Container>
+      </ThemeProvider>
+    );
   }
 }
 
-export default Template
+export default Template;
