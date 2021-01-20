@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
-import KorovaIcon from '../assets/logo_icono2.svg';
+import KorovaIcon from '../assets/logo_icono.svg';
 import {
   Grid,
   Hidden,
@@ -19,12 +19,13 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
     width: '100%',
   },
-  icon: {},
+  icon: { width: 100, height: 100 },
   menuButton: {
     marginRight: theme.spacing(2),
   },
   title: {
     flexGrow: 1,
+    marginLeft: 20,
   },
   buttonMenu: { margin: 10 },
 }));
@@ -42,7 +43,12 @@ const ButtonAppBar = (props) => {
             color="inherit"
             aria-label="menu"
           >
-            <KorovaIcon className={classes.icon} />
+            <Grid container item direction="row" alignItems="center">
+              <KorovaIcon className={classes.icon} />
+              <Typography variant="h6" className={classes.title}>
+                {'KOROVA DIGITAL'}
+              </Typography>
+            </Grid>
           </IconButton>
           <Grid container direction="row" justify="space-between">
             <Grid
@@ -53,12 +59,8 @@ const ButtonAppBar = (props) => {
               item
               xs={12}
             >
-              <Typography variant="h6" className={classes.title}>
-                {'KOROVA DIGITAL'}
-              </Typography>
-
               <Hidden smDown>
-                <Grid xs={10} item justify="space-around">
+                <Grid xs={11} item justify="space-around">
                   <Button color="inherit">Servicios</Button>
                   <Button color="inherit">Acerca de nosotros</Button>
                   <Button color="inherit">COVID-19</Button>
