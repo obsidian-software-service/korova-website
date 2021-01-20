@@ -42,6 +42,7 @@ const ButtonAppBar = (props) => {
             className={classes.menuButton}
             color="inherit"
             aria-label="menu"
+            href="/"
           >
             <Grid container item direction="row" alignItems="center">
               <KorovaIcon className={classes.icon} />
