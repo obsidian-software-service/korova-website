@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'gatsby';
 import MenuIcon from '@material-ui/icons/Menu';
 import KorovaIcon from '../assets/logo_icono.svg';
 import {
@@ -25,9 +26,12 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    marginLeft: 20,
   },
   buttonMenu: { margin: 10 },
+  link: {
+    textDecoration: 'none',
+    cursor: 'pointer',
+  },
 }));
 
 const ButtonAppBar = (props) => {
@@ -37,42 +41,48 @@ const ButtonAppBar = (props) => {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-            href="/"
+          <Grid
+            container
+            direction="row"
+            alignItems="center"
+            justify="space-between"
           >
-            <Grid container item direction="row" alignItems="center">
-              <KorovaIcon className={classes.icon} />
+            <Grid
+              container
+              item
+              md={3}
+              direction="row"
+              alignItems="center"
+            >
+              <IconButton
+                edge="start"
+                className={classes.menuButton}
+                color="inherit"
+                aria-label="menu"
+                href="/"
+              >
+                <KorovaIcon className={classes.icon} />
+              </IconButton>
               <Typography variant="h6" className={classes.title}>
                 {'KOROVA DIGITAL'}
               </Typography>
             </Grid>
-          </IconButton>
-          <Grid container direction="row" justify="space-between">
-            <Grid
-              container
-              direction="column"
-              justify="center"
-              alignItems="center"
-              item
-              xs={12}
-            >
-              <Hidden smDown>
-                <Grid xs={11} item justify="space-around">
-                  <Button color="inherit">Servicios</Button>
-                  <Button color="inherit">Acerca de nosotros</Button>
-                  <Button color="inherit">COVID-19</Button>
+            <Grid container md={6}>
+              <Grid item>
+                <Hidden smDown>
+                  <Link to="/" className={classes.link}>
+                    <Button color="inherit">Home</Button>
+                  </Link>
+                  <Button color="inherit">Quiénes somos?</Button>
                   <Button color="inherit">Eventos</Button>
                   <Button color="inherit">Contactanos</Button>
                   <Button color="inherit">Membresia</Button>
-                  <Button color="inherit">Programar visitas</Button>
-                </Grid>
-              </Hidden>
+                  <Button color="inherit">COVID-19</Button>
+                </Hidden>
+              </Grid>
             </Grid>
           </Grid>
+
           <Hidden mdUp>
             <IconButton
               color="inherit"
@@ -106,7 +116,7 @@ const ButtonAppBar = (props) => {
             color="inherit"
             className={classes.buttonMenu}
           >
-            Acerca de nosotros
+            Quiénes somos?
           </Button>
           <Button
             variant="outlined"
