@@ -26,8 +26,9 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    cursor: 'default',
   },
-  buttonMenu: { margin: 10 },
+  buttonMenu: { width: '98%', margin: 4 },
   link: {
     textDecoration: 'none',
     cursor: 'pointer',
@@ -67,19 +68,31 @@ const ButtonAppBar = (props) => {
                 {'KOROVA DIGITAL'}
               </Typography>
             </Grid>
-            <Grid container md={6}>
-              <Grid item>
-                <Hidden smDown>
-                  <Link to="/" className={classes.link}>
-                    <Button color="inherit">Home</Button>
-                  </Link>
+
+            <Grid item>
+              <Hidden smDown>
+                <Link to="/" className={classes.link}>
+                  <Button color="inherit">Home</Button>
+                </Link>
+                <Link
+                  to="/blog/static-sites-are-great"
+                  className={classes.link}
+                >
                   <Button color="inherit">Quiénes somos?</Button>
+                </Link>
+                <Link to="/" className={classes.link}>
                   <Button color="inherit">Eventos</Button>
+                </Link>
+                <Link to="/blog/hello-world" className={classes.link}>
                   <Button color="inherit">Contactanos</Button>
+                </Link>
+                <Link to="/" className={classes.link}>
                   <Button color="inherit">Membresia</Button>
+                </Link>
+                <Link to="/" className={classes.link}>
                   <Button color="inherit">COVID-19</Button>
-                </Hidden>
-              </Grid>
+                </Link>
+              </Hidden>
             </Grid>
           </Grid>
 
@@ -102,62 +115,73 @@ const ButtonAppBar = (props) => {
           onClose={() => setShowDrawer(false)}
           onOpen={() => setShowDrawer(true)}
         >
-          <Button
-            variant="outlined"
-            size="large"
-            color="secondary"
-            className={classes.buttonMenu}
+          <Link to="/" className={classes.link}>
+            <Button
+              variant="outlined"
+              color="secondary"
+              className={classes.buttonMenu}
+            >
+              Home
+            </Button>
+          </Link>
+          <Link
+            to="/blog/static-sites-are-great"
+            className={classes.link}
           >
-            Servicios
-          </Button>
-          <Button
-            variant="outlined"
-            size="large"
-            color="inherit"
-            className={classes.buttonMenu}
-          >
-            Quiénes somos?
-          </Button>
-          <Button
-            variant="outlined"
-            size="large"
-            color="inherit"
-            className={classes.buttonMenu}
-          >
-            COVID-19
-          </Button>
-          <Button
-            variant="outlined"
-            size="large"
-            color="inherit"
-            className={classes.buttonMenu}
-          >
-            Eventos
-          </Button>
-          <Button
-            variant="outlined"
-            size="large"
-            color="inherit"
-            className={classes.buttonMenu}
-          >
-            Contactanos
-          </Button>
-          <Button
-            variant="outlined"
-            size="large"
-            color="inherit"
-            className={classes.buttonMenu}
-          >
-            Membresia
-          </Button>
-          <Button
-            variant="outlined"
-            size="large"
-            color="inherit"
-            className={classes.buttonMenu}
-          >
-            Programar visitas
-          </Button>
+            <Button
+              variant="outlined"
+              color="inherit"
+              className={classes.buttonMenu}
+            >
+              Quiénes somos?
+            </Button>
+          </Link>
+          <Link to="/" className={classes.link}>
+            <Button
+              variant="outlined"
+              color="inherit"
+              className={classes.buttonMenu}
+            >
+              Eventos
+            </Button>
+          </Link>
+          <Link to="/blog/hello-world" className={classes.link}>
+            <Button
+              variant="outlined"
+              color="inherit"
+              className={classes.buttonMenu}
+            >
+              Contactanos
+            </Button>
+          </Link>
+          <Link to="/" className={classes.link}>
+            <Button
+              variant="outlined"
+              color="inherit"
+              className={classes.buttonMenu}
+            >
+              Membresia
+            </Button>
+          </Link>
+          <Link to="/" className={classes.link}>
+            <Button
+              variant="outlined"
+              size="large"
+              color="inherit"
+              className={classes.buttonMenu}
+            >
+              Programar visitas
+            </Button>
+          </Link>
+          <Link to="/" className={classes.link}>
+            <Button
+              variant="outlined"
+              color="inherit"
+              className={classes.buttonMenu}
+            >
+              COVID-19
+            </Button>
+          </Link>
         </SwipeableDrawer>
       </Hidden>
     </div>
