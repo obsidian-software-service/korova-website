@@ -37,9 +37,9 @@ const styles = makeStyles((theme) => ({
     fontFamily: theme.typography.fontFamily,
     fontSize: 32,
     fontWeight: 900,
-    // '@media (max-width: 576px)': {
-    //   textAlign: 'center',
-    // },
+    '@media (max-width: 576px)': {
+      textAlign: 'center',
+    },
   },
   descriptionCard: {
     fontFamily: theme.typography.fontFamily,
@@ -93,7 +93,7 @@ const Rooms = (props) => {
   const classes = styles(props);
   return (
     <Grid item className={classes.root} xs={12}>
-      <Link className={classes.link} to={props.link}>
+      <Link className={classes.link} href={props.link}>
         <div className={classes.cardBody}>
           <Grid
             item
