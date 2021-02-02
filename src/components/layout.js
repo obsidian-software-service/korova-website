@@ -1,7 +1,10 @@
 import React from 'react';
 import './base.css';
 import Container from './container';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import {
+  createMuiTheme,
+  ThemeProvider,
+} from '@material-ui/core/styles';
 import NavBar from './NavBar';
 
 const theme = createMuiTheme({
@@ -18,6 +21,9 @@ const theme = createMuiTheme({
       dark: '#9b0000',
       contrastText: '#fff',
     },
+  },
+  typography: {
+    fontFamily: ['Roboto ligth', 'Roboto', 'Arial'].join(','),
   },
 });
 

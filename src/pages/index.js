@@ -5,6 +5,8 @@ import { Helmet } from 'react-helmet';
 import Hero from '../components/hero';
 import Layout from '../components/layout';
 import ArticlePreview from '../components/article-preview';
+import Rooms from '../components/Rooms';
+import { Grid } from '@material-ui/core';
 
 class RootIndex extends React.Component {
   render() {
@@ -13,12 +15,32 @@ class RootIndex extends React.Component {
       this,
       'props.data.allContentfulPerson.edges',
     );
+    const rooms = get(this, 'props.data.allContentfulRooms.edges');
 
     return (
       <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
           <Helmet title={'KOROVA DIGITAL'} />
           <Hero data={author.node} />
+          <div className="wrapper">
+            <Grid
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+            >
+              {rooms.map(({ node }, i) => (
+                <Rooms
+                  right={i % 2 === 0}
+                  backgroundImage={`url(${node.image.file.url})`}
+                  title={node.title}
+                  description={node.description.description}
+                  link={node.link}
+                  color={node.color}
+                />
+              ))}
+            </Grid>
+          </div>
           <div className="wrapper">
             <h2 className="section-headline">Recent articles</h2>
             <ul className="article-list">
@@ -86,6 +108,25 @@ export const pageQuery = graphql`
             fluid(resizingBehavior: PAD, background: "rgb:000000") {
               ...GatsbyContentfulFluid_tracedSVG
             }
+          }
+        }
+      }
+    }
+    allContentfulRooms(sort: { fields: [order], order: DESC }) {
+      edges {
+        node {
+          color
+          title
+          subTitle
+          order
+          link
+          image {
+            file {
+              url
+            }
+          }
+          description {
+            description
           }
         }
       }
