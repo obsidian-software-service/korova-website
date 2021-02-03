@@ -25,7 +25,7 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful starter',
+    title: 'Korova Digital',
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
@@ -43,6 +43,14 @@ module.exports = {
         rule: {
           include: /assets/, // See below to configure properly
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'korova Digital',
+        short_name: 'Korova',
+        icon: 'src/assets/favicon.ico',
       },
     },
   ],
