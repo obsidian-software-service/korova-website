@@ -1,10 +1,10 @@
 {
-  "name": "gatsby-contentful-starter",
-  "description": "Starter Contentful Gatsby Blog",
-  "version": "1.0.0",
-  "author": "Stefan Judis <stefanjudis@gmail.com>",
+  "name": "korova-digital",
+  "description": "KOROVA WEB",
+  "version": "1.0.1",
+  "author": "Roger CB <roger.bogado.coverzola@gmail.com>",
   "bugs": {
-    "url": "https://github.com/contentful-userland/gatsby-contentful-starter/issues"
+    "url": "https://github.com/obsidian-software-service/korova-website"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.2",
@@ -12,6 +12,7 @@
     "@material-ui/lab": "^4.0.0-alpha.57",
     "core-js": "^2.5.7",
     "gatsby-image": "^2.3.4",
+    "gatsby-plugin-manifest": "^2.12.0",
     "gatsby-plugin-react-helmet": "^3.2.4",
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sharp": "^2.5.6",
