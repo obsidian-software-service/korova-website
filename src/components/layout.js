@@ -36,10 +36,10 @@ class Template extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <NavBar />
-        <Container>{children}</Container>
-        <footer>
+        <main>
+          <Container>{children}</Container>
           <Footer />
-        </footer>
+        </main>
       </ThemeProvider>
     );
   }

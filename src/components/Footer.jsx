@@ -1,39 +1,43 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
-import TwitterIcon from '@material-ui/icons/Twitter';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import PrimaryInput from './PrimaryInput';
+import KorovaIcon from '../assets/logo_icono2.svg';
+import OctosoftLogo from '../assets/logoOctosoft.svg';
 
 const useStyles = makeStyles((theme) => ({
+  icon: { width: 100, height: 100 },
   toolbar: {
     boxShadow: 'inset 0 2px 3px #ccc',
     padding: theme.spacing(4),
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     color: 'black',
-    background: '#fff',
+    background: theme.palette.primary.contrastText,
     flexWrap: 'wrap',
   },
   section: {
     flex: 1,
     margin: theme.spacing(4),
-    minWidth: 200,
+    minWidth: 100,
   },
   sectionTitle: {
-    color: '#37add4',
+    color: theme.palette.primary.light,
     fontSize: '18px',
     fontWeight: 'bold',
   },
   links: {
     display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    maxWidth: 300,
   },
   link: {
     textDecoration: 'none',
@@ -47,10 +51,11 @@ const useStyles = makeStyles((theme) => ({
   },
   formContainer: {
     paddingTop: 10,
+    maxWidth: 300,
   },
   bottomBar: {
-    background: '#1d2178',
-    color: '#fff',
+    background: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText,
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(8),
@@ -58,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
   },
   bottomText: {
     fontSize: '14px',
-    color: '#fff',
+    color: theme.palette.primary.contrastText,
     fontFamily: theme.typography.fontFamily,
     marginBottom: theme.spacing(4),
   },
@@ -77,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
     clipPath:
       'polygon(50% 0, 85.5% 14.5%, 100% 50%, 85.5% 85.5%, 50% 100%, 14.5% 85.5%, 0 50%, 14.5% 14.5% )',
     background: 'white',
-    color: '#1d2178',
+    color: theme.palette.primary.main,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -108,116 +113,58 @@ const Footer = (props) => {
     <div className={classes.container}>
       <Box className={classes.toolbar}>
         <div className={classes.section}>
-          <Typography className={classes.sectionTitle}>
-            OCTOSOFT
-          </Typography>
-          <div className={classes.links}>
-            <Link
-              className={classes.link}
-              margin={2}
-              to="https://octosoftprofessionals.com/"
+          <Link
+            className={classes.link}
+            margin={2}
+            to="https://octosoftprofessionals.com/"
+          >
+            <Grid
+              container
+              alignItems="center"
+              justify="center"
+              direction="column"
             >
+              <OctosoftLogo className={classes.icon} />
+              <Typography className={classes.sectionTitle}>
+                OCTOSOFT
+              </Typography>
+            </Grid>
+          </Link>
+        </div>
+
+        <KorovaIcon className={classes.icon} />
+        <div className={classes.section}>
+          <Typography className={classes.sectionTitle}>
+            KOROVA DIGITAL
+          </Typography>
+
+          <div className={classes.links}>
+            <Link className={classes.link} margin={2} to="/">
               <div className={classes.linkText}>Home</div>
             </Link>
 
             <Link
               className={classes.link}
               margin={2}
-              to="https://octosoftprofessionals.com/aboutus"
+              to="blog/static-sites-are-great"
             >
-              <div className={classes.linkText}>About Us</div>
+              <div className={classes.linkText}>Quiénes somos?</div>
             </Link>
 
-            <Link
-              className={classes.link}
-              margin={2}
-              to="https://octosoftprofessionals.com/#ourplans"
-            >
-              <div className={classes.linkText}>Our Plans</div>
+            <Link className={classes.link} margin={2} to="/">
+              <div className={classes.linkText}>Eventos</div>
+            </Link>
+            <Link className={classes.link} margin={2} to="/">
+              <div className={classes.linkText}>COVID-19</div>
             </Link>
           </div>
         </div>
         <div className={classes.section}>
           <Typography className={classes.sectionTitle}>
-            {'CONTACT & SUPPORT'}
-          </Typography>
-          <div className={classes.links}>
-            <Link
-              className={classes.link}
-              margin={2}
-              to="https://octosoftprofessionals.com/contact"
-            >
-              <div className={classes.linkText}>Contact Us</div>
-            </Link>
-            <Link
-              className={classes.link}
-              margin={2}
-              to="https://octosoftprofessionals.com/clientsupport"
-            >
-              <div className={classes.linkText}>Client Support</div>
-            </Link>
-          </div>
-        </div>
-        <div className={classes.section}>
-          <Typography className={classes.sectionTitle}>
-            COMMUNITY
-          </Typography>
-          <div className={classes.links}>
-            <Link
-              className={classes.link}
-              margin={2}
-              to="https://octosoftprofessionals.com/news"
-            >
-              <div className={classes.linkText}>News</div>
-            </Link>
-
-            <Link
-              className={classes.link}
-              margin={2}
-              to="https://octosoftprofessionals.com/borderlessIdentities"
-            >
-              <div className={classes.linkText}>
-                Borderless Identities
-              </div>
-            </Link>
-          </div>
-        </div>
-        <div className={classes.section}>
-          <Typography className={classes.sectionTitle}>
-            LEGAL
-          </Typography>
-          <div className={classes.links}>
-            <Link
-              className={classes.link}
-              margin={2}
-              to="https://octosoftprofessionals.com/legal"
-            >
-              <div className={classes.linkText}>Terms of Service</div>
-            </Link>
-
-            <Link
-              className={classes.link}
-              margin={2}
-              to="https://octosoftprofessionals.com/legal"
-            >
-              <div className={classes.linkText}>Terms of Use</div>
-            </Link>
-
-            <Link
-              className={classes.link}
-              margin={2}
-              to="https://octosoftprofessionals.com/legal"
-            >
-              <div className={classes.linkText}>Privacy Policy</div>
-            </Link>
-          </div>
-        </div>
-        <div className={classes.section}>
-          <Typography className={classes.sectionTitle}>
-            SUBSCRIBE
+            CONTACTANOS
           </Typography>
           <div className={classes.linkText}>
-            Don't miss out on our latest news
+            No se pierda nuestras últimas novedades
           </div>
           <div className={classes.formContainer}>
             <form>
@@ -227,7 +174,7 @@ const Footer = (props) => {
                 value={email}
                 name="email"
                 onChange={({ target }) => setEmail(target.value)}
-                label="Your Email"
+                label="Tu Email"
                 variant="filled"
                 type="email"
                 required
@@ -239,18 +186,18 @@ const Footer = (props) => {
       <div className={classes.bottomBar}>
         <div className={classes.section}>
           <Typography className={classes.bottomText}>
-            Copyright 2020 Octosoft Professionals All Rights Reserved.
+            Copyright 2020 Korova Digital All Rights Reserved.
           </Typography>
         </div>
         <div className={classes.sectionSocial}>
           <Typography className={classes.bottomText}>
-            Email: info@octosoftprofessionals.com
+            Email: info@korobadigital.com
           </Typography>
         </div>
         <div className={classes.sectionSocial}>
           <Link
             className={classes.link}
-            to="https://www.facebook.com/octosoftprofessionals"
+            to="https://www.facebook.com/korovadigital/"
           >
             <ItemSocial>
               <FacebookIcon />
@@ -258,7 +205,7 @@ const Footer = (props) => {
           </Link>
           <Link
             className={classes.link}
-            to="https://www.instagram.com/octosoftprofessionals/"
+            to="https://www.instagram.com/korovadigital/"
           >
             <ItemSocial>
               <InstagramIcon />
@@ -266,15 +213,7 @@ const Footer = (props) => {
           </Link>
           <Link
             className={classes.link}
-            to="https://twitter.com/octosoftprofessionals"
-          >
-            <ItemSocial>
-              <TwitterIcon />
-            </ItemSocial>
-          </Link>
-          <Link
-            className={classes.link}
-            to="https://github.com/octosoftprofessionals"
+            to="https://github.com/obsidian-software-service/korova-website"
           >
             <ItemSocial>
               <GitHubIcon />
