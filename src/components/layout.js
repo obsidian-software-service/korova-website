@@ -1,6 +1,5 @@
 import React from 'react';
 import './base.css';
-import Container from './container';
 import {
   createMuiTheme,
   ThemeProvider,
@@ -37,7 +36,7 @@ class Template extends React.Component {
       <ThemeProvider theme={theme}>
         <NavBar />
         <main>
-          <Container>{children}</Container>
+          {children}
           <Footer />
         </main>
       </ThemeProvider>

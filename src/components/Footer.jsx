@@ -10,6 +10,7 @@ import KorovaIcon from '../assets/logo_icono2.svg';
 import OctosoftLogo from '../assets/logoOctosoft.svg';
 
 const useStyles = makeStyles((theme) => ({
+  root: { margin: 0, padding: 0, maxWidth: 'none' },
   icon: { width: 100, height: 100 },
   toolbar: {
     boxShadow: 'inset 0 2px 3px #ccc',
@@ -18,9 +19,10 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    color: 'black',
+    color: theme.palette.main,
     background: theme.palette.primary.contrastText,
     flexWrap: 'wrap',
+    '@media (max-width: 576px)': { flexDirection: 'column' },
   },
   section: {
     flex: 1,
@@ -38,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     maxWidth: 300,
+    '@media (max-width: 576px)': { flexDirection: 'column' },
   },
   link: {
     textDecoration: 'none',
@@ -115,7 +118,6 @@ const Footer = (props) => {
         <div className={classes.section}>
           <Link
             className={classes.link}
-            margin={2}
             to="https://octosoftprofessionals.com/"
           >
             <Grid
@@ -123,6 +125,8 @@ const Footer = (props) => {
               alignItems="center"
               justify="center"
               direction="column"
+              xs={6}
+              className={classes.root}
             >
               <OctosoftLogo className={classes.icon} />
               <Typography className={classes.sectionTitle}>
