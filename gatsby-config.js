@@ -49,5 +49,13 @@ module.exports = {
         icon: 'src/assets/favicon.ico',
       },
     },
+    {
+      resolve: `gatsby-plugin-material-ui`,
+      options: {
+        stylesProvider: {
+          injectFirst: true,
+        },
+      },
+    },
   ],
 };
