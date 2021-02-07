@@ -1,13 +1,14 @@
 import React from 'react';
 import './base.css';
-import Container from './container';
 import {
   createMuiTheme,
   ThemeProvider,
 } from '@material-ui/core/styles';
 import NavBar from './NavBar';
+import Footer from './Footer';
 
 const theme = createMuiTheme({
+  spacing: 4,
   palette: {
     primary: {
       light: '#484848',
@@ -34,7 +35,10 @@ class Template extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <NavBar />
-        <Container>{children}</Container>
+        <main>
+          {children}
+          <Footer />
+        </main>
       </ThemeProvider>
     );
   }

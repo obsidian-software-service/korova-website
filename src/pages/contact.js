@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Button, Hidden, TextField } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import PrimaryInput from '../components/PrimatyInput';
+import PrimaryInput from '../components/PrimaryInput';
 import Layout from '../components/layout';
 
 const useStyles = makeStyles((theme) => ({
@@ -112,7 +112,6 @@ const Contact = (props) => {
             spacing={3}
           >
             <h1 className={classes.title}>CONTACTATE!!!</h1>
-
             <Grid className={classes.gridItem} item xs={6}>
               <PrimaryInput
                 id="NameInput"
