@@ -24,8 +24,10 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 900,
     fontSize: 48,
     lineHeight: 1,
-
     width: '100%',
+    '@media (max-width: 560px)': {
+      fontSize: 40,
+    },
   },
   division: {
     width: 0,
