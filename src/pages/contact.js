@@ -75,8 +75,6 @@ const Contact = (props) => {
 
   const classes = useStyles({ urlImage });
 
-  useEffect(() => {});
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
