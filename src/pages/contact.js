@@ -6,7 +6,7 @@ import { Grid, Button, Hidden, TextField } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import PrimaryInput from '../components/PrimaryInput';
 import Layout from '../components/layout';
-import { OptionSpaces } from '../utils/index';
+import { getOptionSpaces } from '../utils/index';
 
 const useStyles = makeStyles((theme) => ({
   formContainer: {
@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Contact = (props) => {
   const spaces = get(props, 'data.allContentfulContact.edges');
-  const optionSpaces = OptionSpaces(spaces);
+  const optionSpaces = getOptionSpaces(spaces);
 
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');
