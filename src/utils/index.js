@@ -1,5 +1,8 @@
-import React from 'react';
+export const OptionSpaces = (spaces) => {
+  const titleSpaces = [];
+  spaces.forEach((space) => {
+    titleSpaces.push(space.node);
+  });
 
-export const index = () => {
-  return <div></div>;
+  return titleSpaces;
 };
