@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { graphql } from 'gatsby';
+import get from 'lodash/get';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Button, Hidden, TextField } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import PrimaryInput from '../components/PrimaryInput';
 import Layout from '../components/layout';
+import { getOptionSpaces } from '../utils/index';
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
   formContainer: {
     display: 'flex',
     alignItems: 'stretch',
@@ -33,22 +35,17 @@ const useStyles = makeStyles((theme) => ({
     width: 0,
     borderWidth: 2,
     borderStyle: 'solid',
-
+    marginLeft: 20,
     marginTop: 60,
     marginBottom: 60,
   },
   imgContainer: {
-    flex: 1,
-    display: 'flex',
-    justifyContent: 'center',
-  },
-  smartphoneImg: {
-    width: '100%',
-    height: '100%',
-
+    transition:
+      'background-image 0.8s cubic-bezier(0, 0.32, 0.26, 0.84) 0.5s',
+    backgroundImage: (props) => `url(${props.urlImage})`,
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'contain',
+    backgroundSize: 'cover',
   },
   buttonContainer: {
     flex: 1,
@@ -63,23 +60,20 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Contact = (props) => {
+  const spaces = get(props, 'data.allContentfulContact.edges');
+  const optionSpaces = getOptionSpaces(spaces);
+
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [content, setContent] = useState('');
   const [space, setSpace] = useState('');
+  const [urlImage, setUrlImage] = useState(
+    optionSpaces[0].image.file.url,
+  );
 
-  const DummyData = [
-    { title: 'Tatuajes', days: 'lunes a sábado' },
-    { title: 'Fotografia', days: 'martes a sábado' },
-    { title: 'Bar', days: 'viernes y sábado' },
-    { title: 'datos', days: 'lunes a viernes' },
-  ];
-
-  const classes = useStyles();
-
-  useEffect(() => {}, []);
+  const classes = useStyles({ urlImage });
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -102,9 +96,7 @@ const Contact = (props) => {
         <input type="hidden" name="form-name" value="contact" />
         <div className={classes.formContainer}>
           <Hidden smDown>
-            <Grid item className={classes.imgContainer} md={5}>
-              <div className={classes.smartphoneImg} />
-            </Grid>
+            <Grid item className={classes.imgContainer} md={5} />
             <div className={classes.division} />
           </Hidden>
           <Grid
@@ -160,9 +152,14 @@ const Contact = (props) => {
                 value={space}
                 onChange={(event, newValue) => {
                   setSpace(newValue);
+                  setUrlImage(
+                    !!newValue
+                      ? newValue.image.file.url
+                      : optionSpaces[0].image.file.url,
+                  );
                 }}
                 id="ComboBox"
-                options={DummyData}
+                options={optionSpaces}
                 getOptionLabel={(option) => option.title}
                 renderInput={(params) => (
                   <TextField
@@ -203,3 +200,21 @@ const Contact = (props) => {
 };
 
 export default Contact;
+
+export const pageQuery = graphql`
+  query ContactQuery {
+    allContentfulContact(sort: { fields: order }) {
+      edges {
+        node {
+          title
+          order
+          image {
+            file {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+`;
