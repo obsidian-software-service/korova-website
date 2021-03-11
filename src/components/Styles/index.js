@@ -2,6 +2,14 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 export const theme = createMuiTheme({
   overrides: {
+    background: 'linear-gradient(0deg, #000000 35%, transparent 80%)',
+    MuiAppBar: {
+      colorPrimary: {
+        background:
+          'linear-gradient(180deg, #000000 40%, transparent)',
+        backgroundColor: 'none',
+      },
+    },
     MuiCssBaseline: {
       '@global': {
         body: {

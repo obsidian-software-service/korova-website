@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     color: theme.palette.main,
-    background: theme.palette.primary.contrastText,
+    background: theme.overrides.MuiAppBar.colorPrimary,
     flexWrap: 'wrap',
     '@media (max-width: 576px)': { flexDirection: 'column' },
   },
@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 300,
   },
   bottomBar: {
-    background: theme.palette.primary.main,
+    background: theme.overrides.background,
     color: theme.palette.primary.contrastText,
     display: 'flex',
     alignItems: 'center',
