@@ -69,5 +69,5 @@ public
 !.env.example
 
 # vscode
-.vscode
+.vscode/*
 .vscode/settings.json
