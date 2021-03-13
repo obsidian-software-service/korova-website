@@ -67,3 +67,7 @@ public
 .contentful.json
 .env*
 !.env.example
+
+# vscode
+.vscode
+.vscode/settings.json
