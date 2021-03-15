@@ -89,7 +89,7 @@ const ButtonAppBar = (props) => {
                 <Link to="/" className={classes.link}>
                   <Button color="inherit">Membresia</Button>
                 </Link>
-                <Link to="/" className={classes.link}>
+                <Link to="/covid19" className={classes.link}>
                   <Button color="inherit">COVID-19</Button>
                 </Link>
               </Hidden>
@@ -173,7 +173,7 @@ const ButtonAppBar = (props) => {
               Programar visitas
             </Button>
           </Link>
-          <Link to="/" className={classes.link}>
+          <Link to="/covid19" className={classes.link}>
             <Button
               variant="outlined"
               color="inherit"
