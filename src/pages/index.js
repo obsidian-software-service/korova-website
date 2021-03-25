@@ -7,6 +7,7 @@ import Layout from '../components/layout';
 import ArticlePreview from '../components/article-preview';
 import Rooms from '../components/Rooms';
 import { Grid } from '@material-ui/core';
+import PageViewing from '../components/PageViewing';
 
 class RootIndex extends React.Component {
   render() {
@@ -54,6 +55,7 @@ class RootIndex extends React.Component {
             </ul>
           </div>
         </div>
+        <PageViewing />
       </Layout>
     );
   }
