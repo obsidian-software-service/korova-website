@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import { Box, Typography, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import PrimaryInput from './PrimaryInput';
-import KorovaIcon from '../assets/logo_icono2.svg';
-import OctosoftLogo from '../assets/logoOctosoft.svg';
+import PrimaryInput from '../PrimaryInput';
+import KorovaIcon from '../../assets/logo_icono2.svg';
+import OctosoftLogo from '../../assets/logoOctosoft.svg';
+import BottomFooter from './BottomFooter';
 
 const useStyles = makeStyles((theme) => ({
   root: { margin: 0, padding: 0, maxWidth: 'none' },
@@ -99,15 +97,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ItemSocial = ({ children }) => {
-  const classes = useStyles();
-  return (
-    <div className={classes.itemSocial}>
-      <div className={classes.iconSocial}>{children}</div>
-    </div>
-  );
-};
-
 const Footer = (props) => {
   const [email, setEmail] = useState('');
   const classes = useStyles();
@@ -187,44 +176,7 @@ const Footer = (props) => {
           </div>
         </div>
       </Box>
-      <div className={classes.bottomBar}>
-        <div className={classes.section}>
-          <Typography className={classes.bottomText}>
-            Copyright 2020 Korova Digital All Rights Reserved.
-          </Typography>
-        </div>
-        <div className={classes.sectionSocial}>
-          <Typography className={classes.bottomText}>
-            Email: info@korovadigital.com
-          </Typography>
-        </div>
-        <div className={classes.sectionSocial}>
-          <Link
-            className={classes.link}
-            to="https://www.facebook.com/korovadigital/"
-          >
-            <ItemSocial>
-              <FacebookIcon />
-            </ItemSocial>
-          </Link>
-          <Link
-            className={classes.link}
-            to="https://www.instagram.com/korovadigital/"
-          >
-            <ItemSocial>
-              <InstagramIcon />
-            </ItemSocial>
-          </Link>
-          <Link
-            className={classes.link}
-            to="https://github.com/obsidian-software-service/korova-website"
-          >
-            <ItemSocial>
-              <GitHubIcon />
-            </ItemSocial>
-          </Link>
-        </div>
-      </div>
+      <BottomFooter />
     </div>
   );
 };
