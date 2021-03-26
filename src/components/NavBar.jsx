@@ -33,6 +33,11 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: 'none',
     cursor: 'pointer',
   },
+  buttomTour: {
+    transition: 'all 0.5s ease-out',
+    backgroundColor: theme.palette.secondary.light,
+    fontWeight: 700,
+  },
 }));
 
 const ButtonAppBar = (props) => {
@@ -46,12 +51,12 @@ const ButtonAppBar = (props) => {
             container
             direction="row"
             alignItems="center"
-            justify="space-between"
+            justify="space-around"
           >
             <Grid
               container
               item
-              md={3}
+              md={4}
               direction="row"
               alignItems="center"
             >
@@ -68,32 +73,60 @@ const ButtonAppBar = (props) => {
                 {'KOROVA DIGITAL'}
               </Typography>
             </Grid>
-
-            <Grid item>
-              <Hidden smDown>
-                <Link to="/" className={classes.link}>
-                  <Button color="inherit">Home</Button>
-                </Link>
-                <Link
-                  to="/blog/static-sites-are-great"
-                  className={classes.link}
-                >
-                  <Button color="inherit">Quiénes somos?</Button>
-                </Link>
-                <Link to="/" className={classes.link}>
-                  <Button color="inherit">Eventos</Button>
-                </Link>
-                <Link to="/contact" className={classes.link}>
-                  <Button color="inherit">Contactanos</Button>
-                </Link>
-                <Link to="/" className={classes.link}>
-                  <Button color="inherit">Membresia</Button>
-                </Link>
-                <Link to="/" className={classes.link}>
-                  <Button color="inherit">COVID-19</Button>
-                </Link>
-              </Hidden>
-            </Grid>
+            <Hidden smDown>
+              <Grid
+                item
+                container
+                md={8}
+                justify="space-evenly"
+                alignItems="center"
+              >
+                <Grid item>
+                  <Link to="/" className={classes.link}>
+                    <Button color="inherit">Home</Button>
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link
+                    to="/blog/static-sites-are-great"
+                    className={classes.link}
+                  >
+                    <Button color="inherit">Quiénes somos?</Button>
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link to="/" className={classes.link}>
+                    <Button color="inherit">Eventos</Button>
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link to="/contact" className={classes.link}>
+                    <Button color="inherit">Contactanos</Button>
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link to="/" className={classes.link}>
+                    <Button color="inherit">Membresia</Button>
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link to="/" className={classes.link}>
+                    <Button color="inherit">COVID-19</Button>
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link to="/" className={classes.link}>
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      className={classes.buttomTour}
+                    >
+                      TOUR
+                    </Button>
+                  </Link>
+                </Grid>
+              </Grid>
+            </Hidden>
           </Grid>
 
           <Hidden mdUp>
@@ -118,7 +151,7 @@ const ButtonAppBar = (props) => {
           <Link to="/" className={classes.link}>
             <Button
               variant="outlined"
-              color="secondary"
+              color="inherit"
               className={classes.buttonMenu}
             >
               Home
@@ -166,20 +199,19 @@ const ButtonAppBar = (props) => {
           <Link to="/" className={classes.link}>
             <Button
               variant="outlined"
-              size="large"
               color="inherit"
               className={classes.buttonMenu}
             >
-              Programar visitas
+              COVID-19
             </Button>
           </Link>
           <Link to="/" className={classes.link}>
             <Button
               variant="outlined"
-              color="inherit"
+              color="secondary"
               className={classes.buttonMenu}
             >
-              COVID-19
+              TOUR
             </Button>
           </Link>
         </SwipeableDrawer>
