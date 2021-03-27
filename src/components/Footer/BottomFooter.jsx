@@ -6,6 +6,7 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import YouTubeIcon from '@material-ui/icons/YouTube';
+import TwitterIcon from '@material-ui/icons/Twitter';
 
 const useStyles = makeStyles((theme) => ({
   bottomBar: {
@@ -57,6 +58,22 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '.9em',
     fontWeight: '600',
   },
+  Youtube: {
+    display: (props) => (!!props.youtube ? 'block' : 'none'),
+  },
+  Facebook: {
+    display: (props) => (!!props.facebook ? 'block' : 'none'),
+  },
+  Instagram: {
+    display: (props) => (!!props.instagram ? 'block' : 'none'),
+  },
+  GitHub: { display: (props) => (!!props.gitHub ? 'block' : 'none') },
+  Twitter: {
+    display: (props) => (!!props.twitter ? 'block' : 'none'),
+  },
+  Twitch: {
+    display: (props) => (!!props.twitch ? 'block' : 'none'),
+  },
 }));
 const ItemSocial = ({ children }) => {
   const classes = useStyles();
@@ -67,8 +84,24 @@ const ItemSocial = ({ children }) => {
   );
 };
 
-const BottomFooter = () => {
-  const classes = useStyles();
+const BottomFooter = ({
+  copyright,
+  mail,
+  youtube,
+  facebook,
+  instagram,
+  gitHub,
+  twitter,
+  twitch,
+}) => {
+  const classes = useStyles({
+    youtube,
+    facebook,
+    instagram,
+    gitHub,
+    twitter,
+    twitch,
+  });
   return (
     <>
       <Grid
@@ -85,21 +118,27 @@ const BottomFooter = () => {
           className={classes.section}
         >
           <Typography className={classes.bottomText}>
-            Copyright 2020 Korova Digital All Rights Reserved.
+            {copyright}
           </Typography>
         </Grid>
         <Grid container item md={4} justify="center">
           <Typography className={classes.bottomText}>
-            Email: info@korovadigital.com
+            Email: {mail}
           </Typography>
         </Grid>
         <Grid container item md={4} justify="center">
+          <Tooltip title="Twitter" classes={classes}>
+            <Grid item xs={2} className={classes.Twitter}>
+              <Link className={classes.link} to={twitter}>
+                <ItemSocial>
+                  <TwitterIcon />
+                </ItemSocial>
+              </Link>
+            </Grid>
+          </Tooltip>
           <Tooltip title="Youtube" classes={classes}>
-            <Grid item xs={2}>
-              <Link
-                className={classes.link}
-                to="https://www.facebook.com/korovadigital/"
-              >
+            <Grid item xs={2} className={classes.Youtube}>
+              <Link className={classes.link} to={youtube}>
                 <ItemSocial>
                   <YouTubeIcon />
                 </ItemSocial>
@@ -107,11 +146,8 @@ const BottomFooter = () => {
             </Grid>
           </Tooltip>
           <Tooltip title="Facebook" classes={classes}>
-            <Grid item xs={2}>
-              <Link
-                className={classes.link}
-                to="https://www.facebook.com/korovadigital/"
-              >
+            <Grid item xs={2} className={classes.Facebook}>
+              <Link className={classes.link} to={facebook}>
                 <ItemSocial>
                   <FacebookIcon />
                 </ItemSocial>
@@ -119,11 +155,8 @@ const BottomFooter = () => {
             </Grid>
           </Tooltip>
           <Tooltip title="Instagram" classes={classes}>
-            <Grid item xs={2}>
-              <Link
-                className={classes.link}
-                to="https://www.instagram.com/korovadigital/"
-              >
+            <Grid item xs={2} className={classes.Instagram}>
+              <Link className={classes.link} to={instagram}>
                 <ItemSocial>
                   <InstagramIcon />
                 </ItemSocial>
@@ -131,11 +164,8 @@ const BottomFooter = () => {
             </Grid>
           </Tooltip>
           <Tooltip title="GitHub" classes={classes}>
-            <Grid item xs={2}>
-              <Link
-                className={classes.link}
-                to="https://github.com/obsidian-software-service/korova-website"
-              >
+            <Grid item xs={2} className={classes.GitHub}>
+              <Link className={classes.link} to={gitHub}>
                 <ItemSocial>
                   <GitHubIcon />
                 </ItemSocial>
