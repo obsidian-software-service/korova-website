@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import { Typography, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import PrimaryInput from '../PrimaryInput';
@@ -41,9 +42,36 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Footer = (props) => {
+const Footer = () => {
   const [email, setEmail] = useState('');
   const classes = useStyles();
+  const footer = useStaticQuery(graphql`
+    query FooterQuery {
+      contentfulFooter {
+        mail
+        copyright
+        socialMedia {
+          Facebook
+          GitHub
+          Instagram
+          Twitch
+          Twitter
+          Youtube
+        }
+      }
+    }
+  `);
+
+  const { mail, copyright, socialMedia } = footer.contentfulFooter;
+
+  const {
+    Facebook,
+    GitHub,
+    Instagram,
+    Twitch,
+    Twitter,
+    Youtube,
+  } = socialMedia.values().next().value;
 
   return (
     <>
@@ -118,7 +146,16 @@ const Footer = (props) => {
           </Grid>
         </Grid>
       </Grid>
-      <BottomFooter />
+      <BottomFooter
+        mail={mail}
+        copyright={copyright}
+        facebook={Facebook}
+        instagram={Instagram}
+        gitHub={GitHub}
+        youtube={Youtube}
+        twitter={Twitter}
+        twitch={Twitch}
+      />
     </>
   );
 };
